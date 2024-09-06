@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/root/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/Timestamp.o -c /root/mymuduo/Timestamp.cc",
+  "file": "/root/mymuduo/Timestamp.cc"
+},
+{
+  "directory": "/root/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/Logger.o -c /root/mymuduo/Logger.cc",
+  "file": "/root/mymuduo/Logger.cc"
+}
+]
