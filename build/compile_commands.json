@@ -1,6 +1,21 @@
 [
 {
   "directory": "/root/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/Channel.o -c /root/mymuduo/Channel.cc",
+  "file": "/root/mymuduo/Channel.cc"
+},
+{
+  "directory": "/root/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/EventLoop.o -c /root/mymuduo/EventLoop.cc",
+  "file": "/root/mymuduo/EventLoop.cc"
+},
+{
+  "directory": "/root/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/InetAddress.o -c /root/mymuduo/InetAddress.cc",
+  "file": "/root/mymuduo/InetAddress.cc"
+},
+{
+  "directory": "/root/mymuduo/build",
   "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/Timestamp.o -c /root/mymuduo/Timestamp.cc",
   "file": "/root/mymuduo/Timestamp.cc"
 },
@@ -8,5 +23,10 @@
   "directory": "/root/mymuduo/build",
   "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/Logger.o -c /root/mymuduo/Logger.cc",
   "file": "/root/mymuduo/Logger.cc"
+},
+{
+  "directory": "/root/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/TcpServer.o -c /root/mymuduo/TcpServer.cc",
+  "file": "/root/mymuduo/TcpServer.cc"
 }
 ]

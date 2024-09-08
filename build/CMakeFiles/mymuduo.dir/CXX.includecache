@@ -6,13 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/root/mymuduo/Logger.cc
+/root/mymuduo/Channel.cc
+Channel.h
+/root/mymuduo/Channel.h
+EventLoop.h
+/root/mymuduo/EventLoop.h
 Logger.h
 /root/mymuduo/Logger.h
-iostream
+poll.h
 -
+
+/root/mymuduo/Channel.h
+noncopyable.h
+/root/mymuduo/noncopyable.h
 Timestamp.h
 /root/mymuduo/Timestamp.h
+functional
+-
+memory
+-
+
+/root/mymuduo/EventLoop.h
 
 /root/mymuduo/Logger.h
 string

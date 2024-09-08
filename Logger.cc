@@ -3,7 +3,7 @@
 
 #include "Timestamp.h"
 
-// 获取日志的唯一实例
+// 获取日志的唯一实例，通过 局部静态变量实现单例模式
 Logger& Logger::instance()
 {
     // 局部静态变量，注意它的生命周期和作用域

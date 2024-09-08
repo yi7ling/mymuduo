@@ -18,8 +18,8 @@
         Logger& logger = Logger::instance(); \
         logger.setLogLevel(INFO); \
         char buf[1024] = {0}; \
-        snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__) \
-        loggger.log(buf); \
+        snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__); \
+        logger.log(buf); \
     } while (0); \
 
 #define LOG_ERROR(logmsgFormat, ...) \
@@ -28,8 +28,8 @@
         Logger& logger = Logger::instance(); \
         logger.setLogLevel(ERROR); \
         char buf[1024] = {0}; \
-        snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__) \
-        loggger.log(buf); \
+        snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__); \
+        logger.log(buf); \
     } while (0); \
 
 #define LOG_FAIAL(logmsgFormat, ...) \
@@ -38,8 +38,8 @@
         Logger& logger = Logger::instance(); \
         logger.setLogLevel(FAIAL); \
         char buf[1024] = {0}; \
-        snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__) \
-        loggger.log(buf); \
+        snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__); \
+        logger.log(buf); \
     } while (0); \
 
 #ifdef MUDEBUG
@@ -49,8 +49,8 @@
         Logger& logger = Logger::instance(); \
         logger.setLogLevel(DEBUG); \
         char buf[1024] = {0}; \
-        snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__) \
-        loggger.log(buf); \
+        snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__); \
+        logger.log(buf); \
     } while (0); \
 #else
     #define LOG_DEBUG(logmsgFormat, ...)

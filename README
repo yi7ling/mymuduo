@@ -1,0 +1,3 @@
+muduo库是基于Reactor模式实现的TCP网络编程库。
+
+muduo库的前置知识见文件 muduo_note.md
