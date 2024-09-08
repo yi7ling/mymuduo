@@ -42,7 +42,8 @@
         "type_traits": "cpp",
         "utility": "cpp",
         "typeindex": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "atomic": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }
