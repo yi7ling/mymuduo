@@ -43,7 +43,8 @@
         "utility": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp",
-        "atomic": "cpp"
+        "atomic": "cpp",
+        "string": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

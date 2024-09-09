@@ -30,7 +30,7 @@ void Channel::tie(const std::shared_ptr<void>& obj)
  * 通过eventloop，调用poller相应方法，注册fd的events事件
  * 解释：
  *  当改变channel中的 fd 感兴趣事件时，需要更新 poller 里面的 fd对应事件epoll_ctl
- *  因为channel poller是不相干的模块，所以需要通过 eventloop进行更新
+ *  因为channel poller是两个没有从属关系的模块，所以需要通过 eventloop 进行更新
  */
 void Channel::update()
 {

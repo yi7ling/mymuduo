@@ -13,6 +13,17 @@ muduo库是基于Reactor模式实现的TCP网络编程库。
 
 3. 左右值, 移动语义
 
+4. const类型的成员函数中，用到了map中的 hashmap[key]会报错吗？
+
+    解释：如果你在 const 成员函数中使用 hashmap[key]，编译器会报错，因为它违反了 const 成员函数的承诺，因为它可能会插入一个新的键值对到 map 中，如果 fd 这个键在 map 中不存在的话。如果你想在 const 成员函数中访问 map，你应该使用 at() 方法或者 find() 方法，这两种方法都不会修改 map
+
+5. ```extern __thread int t_cachedTid;```
+
+    extern: 引用外部定义，这里只做声明。
+    
+    __thread: 这是一个指示编译器该变量**具有线程局部存储的关键字**。这意味着每个线程都将拥有这个变量的独立副本。
+
+
 ## muduo库前置知识
 
 Reactor模式：
@@ -36,6 +47,7 @@ epoll库：
     epoll, 即Linux epoll I/O事件通知机制的组件之一，常用于事件驱动编程。
     
 - ```struct epoll_event;```   用于epoll机制的关键结构体，通常与 ```epoll_ctl()``` 和 ```epoll_wait()``` 函数一起使用
+- ```epoll_create()``` 创建一个epoll实例
 - ```epoll_ctl()```   用于管理fs事件
 - ```epoll_wait()```  用于监听fs事件
 
@@ -59,4 +71,7 @@ epoll库：
 
     - 主要是对ip 和 port 在网络字节序和主机字节序的一个转化，以及主机字节序状态下的输出。
 
+3. Channel类
+
+4. Poller类、EPollPoller类
     

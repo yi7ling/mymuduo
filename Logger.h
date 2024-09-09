@@ -18,7 +18,8 @@
         Logger& logger = Logger::instance(); \
         logger.setLogLevel(INFO); \
         char buf[1024] = {0}; \
-        snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__); \
+        snprintf(buf, 1024, "File: %s:%d" logmsgFormat, \
+            __FILE__, __LINE__, ##__VA_ARGS__); \
         logger.log(buf); \
     } while (0); \
 
@@ -40,6 +41,7 @@
         char buf[1024] = {0}; \
         snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__); \
         logger.log(buf); \
+        exit(-1); \
     } while (0); \
 
 #ifdef MUDEBUG
@@ -51,7 +53,7 @@
         char buf[1024] = {0}; \
         snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__); \
         logger.log(buf); \
-    } while (0); \
+    } while (0) // 因为#else，为保证语法不需要加分号
 #else
     #define LOG_DEBUG(logmsgFormat, ...)
 #endif

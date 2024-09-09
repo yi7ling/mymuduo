@@ -98,9 +98,32 @@ CMakeFiles/mymuduo.dir/EventLoop.o.provides: CMakeFiles/mymuduo.dir/EventLoop.o.
 
 CMakeFiles/mymuduo.dir/EventLoop.o.provides.build: CMakeFiles/mymuduo.dir/EventLoop.o
 
+CMakeFiles/mymuduo.dir/DefaultPoller.o: CMakeFiles/mymuduo.dir/flags.make
+CMakeFiles/mymuduo.dir/DefaultPoller.o: ../DefaultPoller.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/mymuduo/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/mymuduo.dir/DefaultPoller.o"
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/mymuduo.dir/DefaultPoller.o -c /root/mymuduo/DefaultPoller.cc
+
+CMakeFiles/mymuduo.dir/DefaultPoller.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mymuduo.dir/DefaultPoller.i"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/mymuduo/DefaultPoller.cc > CMakeFiles/mymuduo.dir/DefaultPoller.i
+
+CMakeFiles/mymuduo.dir/DefaultPoller.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mymuduo.dir/DefaultPoller.s"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/mymuduo/DefaultPoller.cc -o CMakeFiles/mymuduo.dir/DefaultPoller.s
+
+CMakeFiles/mymuduo.dir/DefaultPoller.o.requires:
+.PHONY : CMakeFiles/mymuduo.dir/DefaultPoller.o.requires
+
+CMakeFiles/mymuduo.dir/DefaultPoller.o.provides: CMakeFiles/mymuduo.dir/DefaultPoller.o.requires
+	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/DefaultPoller.o.provides.build
+.PHONY : CMakeFiles/mymuduo.dir/DefaultPoller.o.provides
+
+CMakeFiles/mymuduo.dir/DefaultPoller.o.provides.build: CMakeFiles/mymuduo.dir/DefaultPoller.o
+
 CMakeFiles/mymuduo.dir/InetAddress.o: CMakeFiles/mymuduo.dir/flags.make
 CMakeFiles/mymuduo.dir/InetAddress.o: ../InetAddress.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/mymuduo/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/mymuduo/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/mymuduo.dir/InetAddress.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/mymuduo.dir/InetAddress.o -c /root/mymuduo/InetAddress.cc
 
@@ -123,7 +146,7 @@ CMakeFiles/mymuduo.dir/InetAddress.o.provides.build: CMakeFiles/mymuduo.dir/Inet
 
 CMakeFiles/mymuduo.dir/Timestamp.o: CMakeFiles/mymuduo.dir/flags.make
 CMakeFiles/mymuduo.dir/Timestamp.o: ../Timestamp.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/mymuduo/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/mymuduo/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/mymuduo.dir/Timestamp.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/mymuduo.dir/Timestamp.o -c /root/mymuduo/Timestamp.cc
 
@@ -146,7 +169,7 @@ CMakeFiles/mymuduo.dir/Timestamp.o.provides.build: CMakeFiles/mymuduo.dir/Timest
 
 CMakeFiles/mymuduo.dir/Logger.o: CMakeFiles/mymuduo.dir/flags.make
 CMakeFiles/mymuduo.dir/Logger.o: ../Logger.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/mymuduo/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/mymuduo/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/mymuduo.dir/Logger.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/mymuduo.dir/Logger.o -c /root/mymuduo/Logger.cc
 
@@ -169,7 +192,7 @@ CMakeFiles/mymuduo.dir/Logger.o.provides.build: CMakeFiles/mymuduo.dir/Logger.o
 
 CMakeFiles/mymuduo.dir/TcpServer.o: CMakeFiles/mymuduo.dir/flags.make
 CMakeFiles/mymuduo.dir/TcpServer.o: ../TcpServer.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/mymuduo/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/mymuduo/build/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/mymuduo.dir/TcpServer.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/mymuduo.dir/TcpServer.o -c /root/mymuduo/TcpServer.cc
 
@@ -190,24 +213,76 @@ CMakeFiles/mymuduo.dir/TcpServer.o.provides: CMakeFiles/mymuduo.dir/TcpServer.o.
 
 CMakeFiles/mymuduo.dir/TcpServer.o.provides.build: CMakeFiles/mymuduo.dir/TcpServer.o
 
+CMakeFiles/mymuduo.dir/Poller.o: CMakeFiles/mymuduo.dir/flags.make
+CMakeFiles/mymuduo.dir/Poller.o: ../Poller.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/mymuduo/build/CMakeFiles $(CMAKE_PROGRESS_8)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/mymuduo.dir/Poller.o"
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/mymuduo.dir/Poller.o -c /root/mymuduo/Poller.cc
+
+CMakeFiles/mymuduo.dir/Poller.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mymuduo.dir/Poller.i"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/mymuduo/Poller.cc > CMakeFiles/mymuduo.dir/Poller.i
+
+CMakeFiles/mymuduo.dir/Poller.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mymuduo.dir/Poller.s"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/mymuduo/Poller.cc -o CMakeFiles/mymuduo.dir/Poller.s
+
+CMakeFiles/mymuduo.dir/Poller.o.requires:
+.PHONY : CMakeFiles/mymuduo.dir/Poller.o.requires
+
+CMakeFiles/mymuduo.dir/Poller.o.provides: CMakeFiles/mymuduo.dir/Poller.o.requires
+	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/Poller.o.provides.build
+.PHONY : CMakeFiles/mymuduo.dir/Poller.o.provides
+
+CMakeFiles/mymuduo.dir/Poller.o.provides.build: CMakeFiles/mymuduo.dir/Poller.o
+
+CMakeFiles/mymuduo.dir/EPollPoller.o: CMakeFiles/mymuduo.dir/flags.make
+CMakeFiles/mymuduo.dir/EPollPoller.o: ../EPollPoller.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/mymuduo/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/mymuduo.dir/EPollPoller.o"
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/mymuduo.dir/EPollPoller.o -c /root/mymuduo/EPollPoller.cc
+
+CMakeFiles/mymuduo.dir/EPollPoller.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mymuduo.dir/EPollPoller.i"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/mymuduo/EPollPoller.cc > CMakeFiles/mymuduo.dir/EPollPoller.i
+
+CMakeFiles/mymuduo.dir/EPollPoller.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mymuduo.dir/EPollPoller.s"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/mymuduo/EPollPoller.cc -o CMakeFiles/mymuduo.dir/EPollPoller.s
+
+CMakeFiles/mymuduo.dir/EPollPoller.o.requires:
+.PHONY : CMakeFiles/mymuduo.dir/EPollPoller.o.requires
+
+CMakeFiles/mymuduo.dir/EPollPoller.o.provides: CMakeFiles/mymuduo.dir/EPollPoller.o.requires
+	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/EPollPoller.o.provides.build
+.PHONY : CMakeFiles/mymuduo.dir/EPollPoller.o.provides
+
+CMakeFiles/mymuduo.dir/EPollPoller.o.provides.build: CMakeFiles/mymuduo.dir/EPollPoller.o
+
 # Object files for target mymuduo
 mymuduo_OBJECTS = \
 "CMakeFiles/mymuduo.dir/Channel.o" \
 "CMakeFiles/mymuduo.dir/EventLoop.o" \
+"CMakeFiles/mymuduo.dir/DefaultPoller.o" \
 "CMakeFiles/mymuduo.dir/InetAddress.o" \
 "CMakeFiles/mymuduo.dir/Timestamp.o" \
 "CMakeFiles/mymuduo.dir/Logger.o" \
-"CMakeFiles/mymuduo.dir/TcpServer.o"
+"CMakeFiles/mymuduo.dir/TcpServer.o" \
+"CMakeFiles/mymuduo.dir/Poller.o" \
+"CMakeFiles/mymuduo.dir/EPollPoller.o"
 
 # External object files for target mymuduo
 mymuduo_EXTERNAL_OBJECTS =
 
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/Channel.o
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/EventLoop.o
+../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/DefaultPoller.o
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/InetAddress.o
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/Timestamp.o
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/Logger.o
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/TcpServer.o
+../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/Poller.o
+../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/EPollPoller.o
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/build.make
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library ../lib/libmymuduo.so"
@@ -219,10 +294,13 @@ CMakeFiles/mymuduo.dir/build: ../lib/libmymuduo.so
 
 CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/Channel.o.requires
 CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/EventLoop.o.requires
+CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/DefaultPoller.o.requires
 CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/InetAddress.o.requires
 CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/Timestamp.o.requires
 CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/Logger.o.requires
 CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/TcpServer.o.requires
+CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/Poller.o.requires
+CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/EPollPoller.o.requires
 .PHONY : CMakeFiles/mymuduo.dir/requires
 
 CMakeFiles/mymuduo.dir/clean:

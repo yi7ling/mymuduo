@@ -1,4 +1,5 @@
 #include "InetAddress.h"
+#include "Logger.h"
 
 #include <string.h>
 #include <arpa/inet.h>
@@ -43,8 +44,9 @@ uint16_t InetAddress::toPort() const
 int main()
 {
     InetAddress inetadd(8080, "192.168.101.1");
-    std::cout << inetadd.toIpPort() << std::endl;
-    std::cout << inetadd.toPort() << std::endl;
-    std::cout << inetadd.toIp() << std::endl;
+
+    // LOG_INFO("ipdao:%s", "12312312");
+    LOG_INFO("ip-port:%s, ip:%s, port:%u \n",
+        inetadd.toIpPort().c_str(), inetadd.toIp().c_str(), inetadd.toPort());
 }
 */

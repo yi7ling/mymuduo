@@ -49,13 +49,15 @@ public:
     void disableWriting() { events_ &= kWriteEvent; update(); }
     void disableAll() { events_ = kNoneEvent; update(); }
 
-    // 返回fd 当前事件的状态
+    // 返回fd 对感兴趣事件的状态
     bool isNoneEvent() const { return events_ == kNoneEvent; }
     bool isWriting() const { return events_ & kWriteEvent; }
     bool isReading() const { return events_ & kReadEvent; }
 
-    // TODO 写注释
+    // for poller, 查看channel在epoll中的状态
     int index() { return index_; }
+
+    // 设置channel在epoll中的状态
     void set_index(int idx) { index_ = idx; }
 
     // one (event)loop per thread

@@ -11,6 +11,11 @@
 },
 {
   "directory": "/root/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/DefaultPoller.o -c /root/mymuduo/DefaultPoller.cc",
+  "file": "/root/mymuduo/DefaultPoller.cc"
+},
+{
+  "directory": "/root/mymuduo/build",
   "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/InetAddress.o -c /root/mymuduo/InetAddress.cc",
   "file": "/root/mymuduo/InetAddress.cc"
 },
@@ -28,5 +33,15 @@
   "directory": "/root/mymuduo/build",
   "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/TcpServer.o -c /root/mymuduo/TcpServer.cc",
   "file": "/root/mymuduo/TcpServer.cc"
+},
+{
+  "directory": "/root/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/Poller.o -c /root/mymuduo/Poller.cc",
+  "file": "/root/mymuduo/Poller.cc"
+},
+{
+  "directory": "/root/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/EPollPoller.o -c /root/mymuduo/EPollPoller.cc",
+  "file": "/root/mymuduo/EPollPoller.cc"
 }
 ]
