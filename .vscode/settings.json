@@ -49,7 +49,9 @@
         "chrono": "cpp",
         "mutex": "cpp",
         "ratio": "cpp",
-        "system_error": "cpp"
+        "system_error": "cpp",
+        "thread": "cpp",
+        "condition_variable": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

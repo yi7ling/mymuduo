@@ -8,7 +8,7 @@
 #include <fcntl.h>
 #include <memory>
 
-// 防止一个线程创建多个 EventLoop, __thread == thread local，针对每个线程的全局变量
+// 保证一个线程唯一绑定 一个EventLoop, __thread == thread local是针对每个线程的全局变量
 __thread EventLoop* t_loopInThisThread = nullptr;
 
 const int kPollTimeMs = 10000;// 10s
@@ -96,11 +96,11 @@ void EventLoop::loop()
 
         // 执行当前EventLoop事件循环需要处理的回调操作
         /**
-         * 举例子：
-         * IO线程 mainloop收到客户端连接，创建一个client_fd，封装成channel.
-         * 需要把channel发送给 subpool做监听处理
-         * mainloop 事先注册回调cb传给subloop，
-         * wakeup subloop后，执行下面的doPendingFunctors()方法，执行mianloop 注册的cb
+         * 举例子，IO线程 mainloop主要工作：
+         * accept接收连接 => 将accept返回的connfd打包成channel =>
+         * TcpServer::newConnection通过轮询将TcpConnection对象分配给subloop处理。
+         * mainloop 事先注册回调cb，调用queueInLoop将回调cb加入subloop（但该回调需要subloop执行，但subloop还在 poller_->poll阻塞），
+         * 所以queueInLoop通过wakeup将subLoop唤醒，进而执行 doPendingFunctors()
          */
         doPendingFunctors();
     }

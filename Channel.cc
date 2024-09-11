@@ -34,15 +34,13 @@ void Channel::tie(const std::shared_ptr<void>& obj)
  */
 void Channel::update()
 {
-    // TODO 添加代码
-    // loop_->updateChannel(this);
+    loop_->updateChannel(this);
 }
 
 // 在 channel所属的 eventloop中，删除该 channel
 void Channel::remove()
 {
-    // TODO 添加代码
-    // loop_->removeChannel(this);
+    loop_->removeChannel(this);
 }
 
 void Channel::handleEvent(Timestamp timestamp)

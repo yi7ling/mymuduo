@@ -35,6 +35,14 @@ CMakeFiles/mymuduo.dir/EventLoop.o: ../Poller.h
 CMakeFiles/mymuduo.dir/EventLoop.o: ../Timestamp.h
 CMakeFiles/mymuduo.dir/EventLoop.o: ../noncopyable.h
 
+CMakeFiles/mymuduo.dir/EventLoopThread.o: ../CurrentThread.h
+CMakeFiles/mymuduo.dir/EventLoopThread.o: ../EventLoop.h
+CMakeFiles/mymuduo.dir/EventLoopThread.o: ../EventLoopThread.cc
+CMakeFiles/mymuduo.dir/EventLoopThread.o: ../EventLoopThread.h
+CMakeFiles/mymuduo.dir/EventLoopThread.o: ../Thread.h
+CMakeFiles/mymuduo.dir/EventLoopThread.o: ../Timestamp.h
+CMakeFiles/mymuduo.dir/EventLoopThread.o: ../noncopyable.h
+
 CMakeFiles/mymuduo.dir/InetAddress.o: ../InetAddress.cc
 CMakeFiles/mymuduo.dir/InetAddress.o: ../InetAddress.h
 CMakeFiles/mymuduo.dir/InetAddress.o: ../Logger.h
@@ -53,6 +61,11 @@ CMakeFiles/mymuduo.dir/Poller.o: ../noncopyable.h
 
 CMakeFiles/mymuduo.dir/TcpServer.o: ../TcpServer.cc
 CMakeFiles/mymuduo.dir/TcpServer.o: ../TcpServer.h
+
+CMakeFiles/mymuduo.dir/Thread.o: ../CurrentThread.h
+CMakeFiles/mymuduo.dir/Thread.o: ../Thread.cc
+CMakeFiles/mymuduo.dir/Thread.o: ../Thread.h
+CMakeFiles/mymuduo.dir/Thread.o: ../noncopyable.h
 
 CMakeFiles/mymuduo.dir/Timestamp.o: ../Timestamp.cc
 CMakeFiles/mymuduo.dir/Timestamp.o: ../Timestamp.h

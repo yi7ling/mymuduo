@@ -9,10 +9,12 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/root/mymuduo/DefaultPoller.cc" "/root/mymuduo/build/CMakeFiles/mymuduo.dir/DefaultPoller.o"
   "/root/mymuduo/EPollPoller.cc" "/root/mymuduo/build/CMakeFiles/mymuduo.dir/EPollPoller.o"
   "/root/mymuduo/EventLoop.cc" "/root/mymuduo/build/CMakeFiles/mymuduo.dir/EventLoop.o"
+  "/root/mymuduo/EventLoopThread.cc" "/root/mymuduo/build/CMakeFiles/mymuduo.dir/EventLoopThread.o"
   "/root/mymuduo/InetAddress.cc" "/root/mymuduo/build/CMakeFiles/mymuduo.dir/InetAddress.o"
   "/root/mymuduo/Logger.cc" "/root/mymuduo/build/CMakeFiles/mymuduo.dir/Logger.o"
   "/root/mymuduo/Poller.cc" "/root/mymuduo/build/CMakeFiles/mymuduo.dir/Poller.o"
   "/root/mymuduo/TcpServer.cc" "/root/mymuduo/build/CMakeFiles/mymuduo.dir/TcpServer.o"
+  "/root/mymuduo/Thread.cc" "/root/mymuduo/build/CMakeFiles/mymuduo.dir/Thread.o"
   "/root/mymuduo/Timestamp.cc" "/root/mymuduo/build/CMakeFiles/mymuduo.dir/Timestamp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")

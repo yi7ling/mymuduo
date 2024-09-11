@@ -5,7 +5,21 @@ muduo库是基于Reactor模式实现的TCP网络编程库。
     - 前向声明：当整个作用域只需要一个类的指针或者引用时，只用知道这个类的名字即可
     - 包含头文件：当需要创建类对象或者访问类成员时，则应该在文件开头把该类的**完整定义**包含进来
 
-2.  weak_ptr: 用于跟踪 std::shared_ptr 所管理的对象，但不拥有对象的所有权
+2. 智能指针
+    C++的智能指针本质是对原始指针的一种封装。
+    C++智能指针主要有两种：unique_ptr, shared_ptr（c++14支持，c++11不支持）
+
+    unique_ptr：1.作用域指针，超出作用域就会被delete
+    
+                2. 唯一的，不可复制的
+
+    shared_ptr: 工作方式通过引用计数
+
+    weak_ptr: 1. 可以和共享指针一起使用
+
+              2. weak_ptr的引用，不会使 引用计数器＋1
+
+              3. 主要用于跟踪 std::shared_ptr 所管理的对象，但不拥有对象的所有权
     ```
     std::weak_ptr<void> tie_;
     bool tied_;
@@ -26,7 +40,16 @@ muduo库是基于Reactor模式实现的TCP网络编程库。
 6. atomic库
     CAS是“Compare-And-Swap”的缩写，是一种常用于**并发编程中的原子操作**。CAS操作包含三个参数：内存位置（V）、预期原值（A）和新值（B）。
 
-7. sys/eventfd.h库
+7. eventfd()的使用
+
+```cpp
+/* eventfd - create a file descriptor for event notification */
+#include <sys/eventfd.h>
+int eventfd(unsigned int initval, int flags);
+
+```
+
+调用函数eventfd()会创建一个eventfd对象，或者也可以理解打开一个eventfd类型的文件，类似普通文件的open操作。eventfd的在内核空间维护一个无符号64位整型计数器， 初始化为initval的值。
 
 8. std::bind 常用于将成员函数绑定到对象上，以便在需要的地方调用。
 
@@ -86,4 +109,7 @@ epoll库：
     1. mainLoop 和 subLoop 之间的关系是？ 相互之间可以激活吗？ 何种方式激活的？
     2. loop上的回调从何而来？
     3. 为什么 loop上的回调需要用锁给保护起来使用？
+    4. 为什么EventLoop类中的 looping_、quit_字段 要设置成原子类型
+
+6. EventLoopThreadPoll
     

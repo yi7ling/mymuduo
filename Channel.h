@@ -35,6 +35,7 @@ public:
     void setErrorCallback(EventCallback cb) { errorCallback_ = std::move(cb); }
 
     // 绑定智能指针，防止当 channel 被手动 remove, channel还在执行回调操作
+    // TODO 这个函数用在哪？
     void tie(const std::shared_ptr<void>&);
 
     int fd() const { return fd_; }

@@ -55,7 +55,7 @@ private:
         callingPendingFunctors_;        // 标识当前loop是否正在执行的回调操作
     const pid_t threadId_;              // 记录当前loop 所在的线程id
     Timestamp pollReturnTime_;          // poller返回发生事件的channels的时间点
-    std::unique_ptr<Poller> poller_;
+    std::unique_ptr<Poller> poller_;    // 使用智能指针，C++14支持，C++11不支持
 
     /**
      * 当mainLoop获取一个新用户的channel，通过轮询算法选择一个subloop，

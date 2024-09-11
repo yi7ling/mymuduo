@@ -6,6 +6,11 @@
 },
 {
   "directory": "/root/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/EventLoopThread.o -c /root/mymuduo/EventLoopThread.cc",
+  "file": "/root/mymuduo/EventLoopThread.cc"
+},
+{
+  "directory": "/root/mymuduo/build",
   "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/EventLoop.o -c /root/mymuduo/EventLoop.cc",
   "file": "/root/mymuduo/EventLoop.cc"
 },
@@ -43,6 +48,11 @@
   "directory": "/root/mymuduo/build",
   "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/EPollPoller.o -c /root/mymuduo/EPollPoller.cc",
   "file": "/root/mymuduo/EPollPoller.cc"
+},
+{
+  "directory": "/root/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/Thread.o -c /root/mymuduo/Thread.cc",
+  "file": "/root/mymuduo/Thread.cc"
 },
 {
   "directory": "/root/mymuduo/build",
