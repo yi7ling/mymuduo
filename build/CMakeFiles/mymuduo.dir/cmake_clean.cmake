@@ -8,6 +8,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/mymuduo.dir/TcpServer.o"
   "CMakeFiles/mymuduo.dir/Poller.o"
   "CMakeFiles/mymuduo.dir/EPollPoller.o"
+  "CMakeFiles/mymuduo.dir/CurrentThread.o"
   "../lib/libmymuduo.pdb"
   "../lib/libmymuduo.so"
 )

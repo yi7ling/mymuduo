@@ -9,7 +9,7 @@
 class Channel;
 class EventLoop;
 
-// IO多路复用模块核心，抽象类
+// IO多路复用模块，抽象类（因为有纯虚函数）
 class Poller : noncopyable
 {
 public:

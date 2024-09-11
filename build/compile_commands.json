@@ -43,5 +43,10 @@
   "directory": "/root/mymuduo/build",
   "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/EPollPoller.o -c /root/mymuduo/EPollPoller.cc",
   "file": "/root/mymuduo/EPollPoller.cc"
+},
+{
+  "directory": "/root/mymuduo/build",
+  "command": "/usr/bin/g++   -Dmymuduo_EXPORTS  -g -std=c++11 -g -fPIC   -o CMakeFiles/mymuduo.dir/CurrentThread.o -c /root/mymuduo/CurrentThread.cc",
+  "file": "/root/mymuduo/CurrentThread.cc"
 }
 ]

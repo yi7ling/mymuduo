@@ -23,6 +23,12 @@ muduo库是基于Reactor模式实现的TCP网络编程库。
     
     __thread: 这是一个指示编译器该变量**具有线程局部存储的关键字**。这意味着每个线程都将拥有这个变量的独立副本。
 
+6. atomic库
+    CAS是“Compare-And-Swap”的缩写，是一种常用于**并发编程中的原子操作**。CAS操作包含三个参数：内存位置（V）、预期原值（A）和新值（B）。
+
+7. sys/eventfd.h库
+
+8. std::bind 常用于将成员函数绑定到对象上，以便在需要的地方调用。
 
 ## muduo库前置知识
 
@@ -74,4 +80,10 @@ epoll库：
 3. Channel类
 
 4. Poller类、EPollPoller类
+
+5. EventLoop类
+    疑问：
+    1. mainLoop 和 subLoop 之间的关系是？ 相互之间可以激活吗？ 何种方式激活的？
+    2. loop上的回调从何而来？
+    3. 为什么 loop上的回调需要用锁给保护起来使用？
     

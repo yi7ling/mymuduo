@@ -33,7 +33,7 @@ Timestamp EPollPoller::poll(int timeoutMs, ChannelList* activeChannels)
         __func__, channels_.size());
 
     int numEvents = ::epoll_wait(epollfd_,
-                                 &*events_.begin(),
+                                 &*events_.begin(),// 取vecotr类型数组的元素首地址
                                  static_cast<int>(events_.size()),
                                  timeoutMs);
     int savedErrno = errno;
