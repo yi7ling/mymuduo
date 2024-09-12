@@ -7,8 +7,7 @@ namespace CurrentThread
 
     inline int tid()
     {
-        // 编译器优化
-        if (__builtin_expect(t_cachedTid == 0, 0))
+        if (__builtin_expect(t_cachedTid == 0, 0)) // 编译器优化, inexpect = 不期望
         {
             cachedTid();
         }

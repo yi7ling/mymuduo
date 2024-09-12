@@ -42,16 +42,31 @@ muduo库是基于Reactor模式实现的TCP网络编程库。
 
 7. eventfd()的使用
 
-```cpp
-/* eventfd - create a file descriptor for event notification */
-#include <sys/eventfd.h>
-int eventfd(unsigned int initval, int flags);
+    ```cpp
+    /* eventfd - create a file descriptor for event notification */
+    #include <sys/eventfd.h>
+    int eventfd(unsigned int initval, int flags);
 
-```
+    ```
 
-调用函数eventfd()会创建一个eventfd对象，或者也可以理解打开一个eventfd类型的文件，类似普通文件的open操作。eventfd的在内核空间维护一个无符号64位整型计数器， 初始化为initval的值。
+    调用函数eventfd()会创建一个eventfd对象，或者也可以理解打开一个eventfd类型的文件，类似普通文件的open操作。eventfd的在内核空间维护一个无符号64位整型计数器， 初始化为initval的值。
 
 8. std::bind 常用于将成员函数绑定到对象上，以便在需要的地方调用。
+
+9. semaphore、condition_variable以及mutex库
+    semaphore: 信号量机制，通过设置信号量数实现线程间的并发访问数量
+    condition_variable: 条件变量，主要用于实现线程间的同步。如：生产者消费者问题
+
+    条件变量使用过程：
+    1. 拥有条件变量的线程获取互斥量；
+    2. 循环检查某个条件，如果条件不满足则阻塞直到条件满足；如果条件满足则向下执行；
+    3. 某个线程满足条件执行完之后调用notify_one或notify_all唤醒一个或者所有等待线程。
+       条件变量提供了两类操作：wait和notify。这两类操作构成了多线程同步的基础。
+
+    mutex: 互斥锁，主要用于实现线程间互斥访问共享资源
+
+    mutex的使用：mutex.lock() 和 mutex.unlock()，但相对于手动lock和unlock，
+    我们可以使用RAII(通过类的构造析构， Resource Acquisition Is Initialization)来实现更好的编码方式，可以使用unique_lock,lock_guard 实现自动的加锁和解锁。
 
 ## muduo库前置知识
 

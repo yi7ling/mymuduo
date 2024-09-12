@@ -8,6 +8,7 @@
 #include <string>
 #include <atomic>
 
+// 封装线程
 class Thread : noncopyable
 {
 public:
@@ -15,7 +16,7 @@ public:
     explicit Thread(ThreadFunc, const std::string& name = std::string());
     ~Thread();
 
-    void start();
+    void start(); // 线程创建的地方
     void join();
 
     bool started() const { return started_; }

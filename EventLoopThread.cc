@@ -34,8 +34,14 @@ EventLoop* EventLoopThread::startLoop()
 
     {
         std::unique_lock<std::mutex> lock(mutex_);
-        while (loop_ == NULL)
+        while (loop_ == NULL) // 防止虚假的唤醒，wait后会检查 loop_是否为空
         {
+            /**
+             * wait 函数在被调用时会原子性地释放传入的互斥锁(lock参数)，并使当前线程进入等待状态
+             * 
+             * 当条件变量的 wait 函数被唤醒（无论是因为 notify_one/notify_all 被调用，还是因为超时或虚假唤醒）时，
+             * 它会在内部重新尝试获取互斥锁lock，然后再次检查等待的条件。
+             */
             cond_.wait(lock);
         }
         loop = loop_;
