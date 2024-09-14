@@ -17,7 +17,10 @@ public:
     std::string toIpPort() const;
     uint16_t toPort() const;
 
-    const struct sockaddr_in* getSockAddr() const {return &addr_;}
+    // 将 sockaddr_in 转成 sockaddr
+    const struct sockaddr* getSockAddr() const {return static_cast<const struct sockaddr*>((const void*)(&addr_));}
+
+    void setSockAddr(const sockaddr_in addr) { addr_ = addr; };
 private:
     struct sockaddr_in addr_;// ipv4
 };

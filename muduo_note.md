@@ -95,6 +95,13 @@ epoll库：
 - ```epoll_ctl()```   用于管理fs事件
 - ```epoll_wait()```  用于监听fs事件
 
+socket和addr（IP地址:端口号）之间的关系：
+    1. socket表示通信端点，每个socket都有一个文件描述符，操作系统通过这个文件描述符来管理网络通信
+    2. addr包含了网络通信所需的地址信息，包含IP地址和端口号
+    3. 在服务器端，bind() 函数用于将 socket 与一个本地地址（addr）绑定。
+    这告诉操作系统，所有发送到这个地址的网络数据都应该由这个 socket 来处理。
+
+
 源码分析步骤：
 
 1. 服务器实例的创建与启动，以 EchoServer为例，[main.cc]
@@ -126,5 +133,9 @@ epoll库：
     3. 为什么 loop上的回调需要用锁给保护起来使用？
     4. 为什么EventLoop类中的 looping_、quit_字段 要设置成原子类型
 
-6. EventLoopThreadPoll
+6. Thread 和 EventLoopThread
+
+7. EventLoopThreadPool
+
+8. socket 和 Acceptor
     
