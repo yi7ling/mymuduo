@@ -29,12 +29,11 @@ public:
         , writerIndex_(kCheapPrepend)
     {}
 
+    // 获取xx区域的字节数
     size_t readableBytes() const
     { return writerIndex_ - readerIndex_; }
-
     size_t writableBytes() const
     { return buffer_.size() - writerIndex_; }
-
     size_t prependableBytes() const
     { return readerIndex_; }
 
@@ -82,6 +81,25 @@ public:
             makeSpace(len); // 扩容
         }
     }
+
+    // 把[data, data+len]内存上的数据，添加到缓冲区的可写区域
+    void append(const char* data, size_t len)
+    {
+        ensureWriteableBytes(len);
+        std::copy(data, data+len, beginWrite());
+        writerIndex_ += len;
+    }
+
+    char* beginWrite()
+    { return begin() + writerIndex_; }
+
+    const char* beginWrite() const
+    {
+        return begin() + writerIndex_; 
+    }
+
+    // 从 fd 上读数据
+    ssize_t readFd(int fd, int* savedErrno);
 private:
     char* begin()
     {
@@ -92,6 +110,7 @@ private:
         return &*buffer_.begin();
     }
 
+    // 提供给const方法调用
     const char* begin() const
     { return &*buffer_.begin(); }
 

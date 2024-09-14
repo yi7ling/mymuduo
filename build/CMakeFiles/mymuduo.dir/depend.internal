@@ -12,6 +12,7 @@ CMakeFiles/mymuduo.dir/Acceptor.o
  /root/mymuduo/noncopyable.h
 CMakeFiles/mymuduo.dir/Buffer.o
  /root/mymuduo/Buffer.cc
+ /root/mymuduo/Buffer.h
 CMakeFiles/mymuduo.dir/Callbacks.o
  /root/mymuduo/Callbacks.cc
 CMakeFiles/mymuduo.dir/Channel.o

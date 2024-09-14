@@ -11,6 +11,7 @@ CMakeFiles/mymuduo.dir/Acceptor.o: ../Timestamp.h
 CMakeFiles/mymuduo.dir/Acceptor.o: ../noncopyable.h
 
 CMakeFiles/mymuduo.dir/Buffer.o: ../Buffer.cc
+CMakeFiles/mymuduo.dir/Buffer.o: ../Buffer.h
 
 CMakeFiles/mymuduo.dir/Callbacks.o: ../Callbacks.cc
 
