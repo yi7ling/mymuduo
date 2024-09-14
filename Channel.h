@@ -43,7 +43,7 @@ public:
     // used by pollers, Poller监听到fd实际发生的事件, 设置给 channel
     int set_revents(int revt) { revents_ = revt; }
 
-    // 设置fd 相应的事件状态
+    // 设置fd 相应的事件状态，同时更新 poller 对应的 fd状态
     void enableReading() { events_ |= kReadEvent; update(); }
     void disableReading() { events_ &= ~kReadEvent; update(); }
     void enableWriting() { events_ |= kWriteEvent; update(); }

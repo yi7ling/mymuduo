@@ -13,7 +13,7 @@ public:
     Acceptor(EventLoop* loop, const InetAddress& listenAddr, bool request);
     ~Acceptor();
 
-    void setNewConntectionCallbck(const NewConntectionCallback &cb)
+    void setNewConntectionCallback(const NewConntectionCallback &cb)
     {
         newConntectionCallback_ = cb;
     }

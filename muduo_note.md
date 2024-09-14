@@ -101,8 +101,17 @@ socket和addr（IP地址:端口号）之间的关系：
     3. 在服务器端，bind() 函数用于将 socket 与一个本地地址（addr）绑定。
     这告诉操作系统，所有发送到这个地址的网络数据都应该由这个 socket 来处理。
 
+同步调用和异步调用：
+```cpp
+// 在mainloop所在的线程中执行listen。异步调用
+loop_->runInLoop(
+    std::bind(&Acceptor::listen, acceptor_.get()));
 
-源码分析步骤：
+// 直接在当前线程中执行listen, 同步调用
+acceptor_->listen();
+```
+
+## 源码分析
 
 1. 服务器实例的创建与启动，以 EchoServer为例，[main.cc]
 
