@@ -52,6 +52,24 @@ muduo库是基于Reactor模式实现的TCP网络编程库。
     调用函数eventfd()会创建一个eventfd对象，或者也可以理解打开一个eventfd类型的文件，类似普通文件的open操作。eventfd的在内核空间维护一个无符号64位整型计数器， 初始化为initval的值。
 
 8. std::bind 常用于将成员函数绑定到对象上，以便在需要的地方调用。
+    ```cpp
+    struct Foo {
+        void print_sum(int n1, int n2)
+        {
+            std::cout << n1+n2 << '\n';
+        }
+        int data = 10;
+    };
+
+    int main() 
+    {
+        Foo foo;
+        auto f = std::bind(&Foo::print_sum, &foo, 95, std::placeholders::_1);
+        f(5); // =100
+    }
+    ```
+
+    总结：Foo::print_sum是成员函数本身，而&Foo::printf_sum是指向该成员函数的指针，这需要将成员函数作为函数模板（如std::bind）时是必要的。
 
 9. semaphore、condition_variable以及mutex库
     semaphore: 信号量机制，通过设置信号量数实现线程间的并发访问数量

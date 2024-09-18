@@ -25,3 +25,6 @@ using MessageCallbck =
                         Buffer*,
                         Timestamp)>;
 
+using HighWaterMarkCallback =
+    std::function<void (const TcpConnectionPtr&,
+                        size_t)>;

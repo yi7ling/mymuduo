@@ -2,7 +2,7 @@
 
 #include <errno.h>
 #include <sys/uio.h>
-
+#include <unistd.h>
 
 /**
  * 从fd上读取数据，Poller工作在LT模式
@@ -20,13 +20,15 @@ ssize_t Buffer::readFd(int fd, int* savedErrno)
     vec[1].iov_base = extrabuf;
     vec[1].iov_len = sizeof extrabuf;
 
+    // 当buffer_中有足够空间时，不会使用到 extrabuf
+    // 当 extrabuf 被使用时，最多读取 128k-1 字节
     const int iovcnt = (writeable < sizeof extrabuf) ? 2 : 1;
 
     // 先把数据读到 buffer_ 和 extrabuf
     const ssize_t n = ::readv(fd, vec, iovcnt);
     if (n < 0)
     {
-        *savedErrno = errno;
+        *savedErrno = errno; // 返回错误码
     }
     else if (n <= writeable)
     {
@@ -40,4 +42,15 @@ ssize_t Buffer::readFd(int fd, int* savedErrno)
         append(extrabuf, n - writeable);
     }
     return n;
+}
+
+ssize_t Buffer::writeFd(int fd, int* savedErrno)
+{
+    // 把 buffer_可读的数据写到 fd中
+    ssize_t n = ::write(fd, peek(), readableBytes());
+    if (n < 0)
+    {
+        *savedErrno = errno;
+    }
+    return n;// n >= 0
 }

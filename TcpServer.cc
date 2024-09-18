@@ -1,9 +1,7 @@
 #include "TcpServer.h"
 #include "Logger.h"
 
-#define CHECK_NOTNULL(x) \
-
-EventLoop* checkLoopNotNull(EventLoop* loop)
+EventLoop* checkMainLoopNotNull(EventLoop* loop)
 {
     if (loop == NULL)
     {
@@ -16,7 +14,7 @@ TcpServer::TcpServer(EventLoop* loop,
             const InetAddress& listenAddr,
             const std::string& nameArg,
             Option option)
-            : loop_(checkLoopNotNull(loop))
+            : loop_(checkMainLoopNotNull(loop))
             , ipPort_(listenAddr.toIpPort())
             , name_(nameArg)
             , acceptor_(new Acceptor(loop, listenAddr, option == kReusePort))

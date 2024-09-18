@@ -100,6 +100,8 @@ public:
 
     // 从 fd 上读数据
     ssize_t readFd(int fd, int* savedErrno);
+    // 向 fd 发送数据
+    ssize_t writeFd(int fd, int* savedErrno);
 private:
     char* begin()
     {
