@@ -186,6 +186,7 @@ epoll的触发方式有两种：水平触发LT、边缘触发ET
 7. EventLoopThreadPool
 
 8. socket 和 Acceptor
+    注意区别 Acceptor中的 handleRead() 和 TcpConnection 中的 handleRead()
 
 9. TcpServer
 

@@ -1,8 +1,8 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/mymuduo.dir/Acceptor.o"
+  "CMakeFiles/mymuduo.dir/TcpConnection.o"
   "CMakeFiles/mymuduo.dir/Channel.o"
   "CMakeFiles/mymuduo.dir/EventLoopThread.o"
-  "CMakeFiles/mymuduo.dir/TcpConntection.o"
   "CMakeFiles/mymuduo.dir/EventLoop.o"
   "CMakeFiles/mymuduo.dir/DefaultPoller.o"
   "CMakeFiles/mymuduo.dir/InetAddress.o"

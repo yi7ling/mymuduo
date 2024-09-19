@@ -75,9 +75,32 @@ CMakeFiles/mymuduo.dir/Acceptor.o.provides: CMakeFiles/mymuduo.dir/Acceptor.o.re
 
 CMakeFiles/mymuduo.dir/Acceptor.o.provides.build: CMakeFiles/mymuduo.dir/Acceptor.o
 
+CMakeFiles/mymuduo.dir/TcpConnection.o: CMakeFiles/mymuduo.dir/flags.make
+CMakeFiles/mymuduo.dir/TcpConnection.o: ../TcpConnection.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/mymuduo/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/mymuduo.dir/TcpConnection.o"
+	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/mymuduo.dir/TcpConnection.o -c /root/mymuduo/TcpConnection.cc
+
+CMakeFiles/mymuduo.dir/TcpConnection.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mymuduo.dir/TcpConnection.i"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/mymuduo/TcpConnection.cc > CMakeFiles/mymuduo.dir/TcpConnection.i
+
+CMakeFiles/mymuduo.dir/TcpConnection.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mymuduo.dir/TcpConnection.s"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/mymuduo/TcpConnection.cc -o CMakeFiles/mymuduo.dir/TcpConnection.s
+
+CMakeFiles/mymuduo.dir/TcpConnection.o.requires:
+.PHONY : CMakeFiles/mymuduo.dir/TcpConnection.o.requires
+
+CMakeFiles/mymuduo.dir/TcpConnection.o.provides: CMakeFiles/mymuduo.dir/TcpConnection.o.requires
+	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/TcpConnection.o.provides.build
+.PHONY : CMakeFiles/mymuduo.dir/TcpConnection.o.provides
+
+CMakeFiles/mymuduo.dir/TcpConnection.o.provides.build: CMakeFiles/mymuduo.dir/TcpConnection.o
+
 CMakeFiles/mymuduo.dir/Channel.o: CMakeFiles/mymuduo.dir/flags.make
 CMakeFiles/mymuduo.dir/Channel.o: ../Channel.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/mymuduo/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/mymuduo/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/mymuduo.dir/Channel.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/mymuduo.dir/Channel.o -c /root/mymuduo/Channel.cc
 
@@ -100,7 +123,7 @@ CMakeFiles/mymuduo.dir/Channel.o.provides.build: CMakeFiles/mymuduo.dir/Channel.
 
 CMakeFiles/mymuduo.dir/EventLoopThread.o: CMakeFiles/mymuduo.dir/flags.make
 CMakeFiles/mymuduo.dir/EventLoopThread.o: ../EventLoopThread.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/mymuduo/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /root/mymuduo/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/mymuduo.dir/EventLoopThread.o"
 	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/mymuduo.dir/EventLoopThread.o -c /root/mymuduo/EventLoopThread.cc
 
@@ -120,29 +143,6 @@ CMakeFiles/mymuduo.dir/EventLoopThread.o.provides: CMakeFiles/mymuduo.dir/EventL
 .PHONY : CMakeFiles/mymuduo.dir/EventLoopThread.o.provides
 
 CMakeFiles/mymuduo.dir/EventLoopThread.o.provides.build: CMakeFiles/mymuduo.dir/EventLoopThread.o
-
-CMakeFiles/mymuduo.dir/TcpConntection.o: CMakeFiles/mymuduo.dir/flags.make
-CMakeFiles/mymuduo.dir/TcpConntection.o: ../TcpConntection.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /root/mymuduo/build/CMakeFiles $(CMAKE_PROGRESS_4)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/mymuduo.dir/TcpConntection.o"
-	/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/mymuduo.dir/TcpConntection.o -c /root/mymuduo/TcpConntection.cc
-
-CMakeFiles/mymuduo.dir/TcpConntection.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mymuduo.dir/TcpConntection.i"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /root/mymuduo/TcpConntection.cc > CMakeFiles/mymuduo.dir/TcpConntection.i
-
-CMakeFiles/mymuduo.dir/TcpConntection.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mymuduo.dir/TcpConntection.s"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /root/mymuduo/TcpConntection.cc -o CMakeFiles/mymuduo.dir/TcpConntection.s
-
-CMakeFiles/mymuduo.dir/TcpConntection.o.requires:
-.PHONY : CMakeFiles/mymuduo.dir/TcpConntection.o.requires
-
-CMakeFiles/mymuduo.dir/TcpConntection.o.provides: CMakeFiles/mymuduo.dir/TcpConntection.o.requires
-	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/TcpConntection.o.provides.build
-.PHONY : CMakeFiles/mymuduo.dir/TcpConntection.o.provides
-
-CMakeFiles/mymuduo.dir/TcpConntection.o.provides.build: CMakeFiles/mymuduo.dir/TcpConntection.o
 
 CMakeFiles/mymuduo.dir/EventLoop.o: CMakeFiles/mymuduo.dir/flags.make
 CMakeFiles/mymuduo.dir/EventLoop.o: ../EventLoop.cc
@@ -469,9 +469,9 @@ CMakeFiles/mymuduo.dir/CurrentThread.o.provides.build: CMakeFiles/mymuduo.dir/Cu
 # Object files for target mymuduo
 mymuduo_OBJECTS = \
 "CMakeFiles/mymuduo.dir/Acceptor.o" \
+"CMakeFiles/mymuduo.dir/TcpConnection.o" \
 "CMakeFiles/mymuduo.dir/Channel.o" \
 "CMakeFiles/mymuduo.dir/EventLoopThread.o" \
-"CMakeFiles/mymuduo.dir/TcpConntection.o" \
 "CMakeFiles/mymuduo.dir/EventLoop.o" \
 "CMakeFiles/mymuduo.dir/DefaultPoller.o" \
 "CMakeFiles/mymuduo.dir/InetAddress.o" \
@@ -491,9 +491,9 @@ mymuduo_OBJECTS = \
 mymuduo_EXTERNAL_OBJECTS =
 
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/Acceptor.o
+../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/TcpConnection.o
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/Channel.o
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/EventLoopThread.o
-../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/TcpConntection.o
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/EventLoop.o
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/DefaultPoller.o
 ../lib/libmymuduo.so: CMakeFiles/mymuduo.dir/InetAddress.o
@@ -518,9 +518,9 @@ CMakeFiles/mymuduo.dir/build: ../lib/libmymuduo.so
 .PHONY : CMakeFiles/mymuduo.dir/build
 
 CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/Acceptor.o.requires
+CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/TcpConnection.o.requires
 CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/Channel.o.requires
 CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/EventLoopThread.o.requires
-CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/TcpConntection.o.requires
 CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/EventLoop.o.requires
 CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/DefaultPoller.o.requires
 CMakeFiles/mymuduo.dir/requires: CMakeFiles/mymuduo.dir/InetAddress.o.requires

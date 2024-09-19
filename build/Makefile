@@ -325,19 +325,19 @@ Socket.s:
 .PHONY : Socket.s
 
 # target to build an object file
-TcpConntection.o:
-	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/TcpConntection.o
-.PHONY : TcpConntection.o
+TcpConnection.o:
+	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/TcpConnection.o
+.PHONY : TcpConnection.o
 
 # target to preprocess a source file
-TcpConntection.i:
-	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/TcpConntection.i
-.PHONY : TcpConntection.i
+TcpConnection.i:
+	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/TcpConnection.i
+.PHONY : TcpConnection.i
 
 # target to generate assembly for a file
-TcpConntection.s:
-	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/TcpConntection.s
-.PHONY : TcpConntection.s
+TcpConnection.s:
+	$(MAKE) -f CMakeFiles/mymuduo.dir/build.make CMakeFiles/mymuduo.dir/TcpConnection.s
+.PHONY : TcpConnection.s
 
 # target to build an object file
 TcpServer.o:
@@ -435,9 +435,9 @@ help:
 	@echo "... Socket.o"
 	@echo "... Socket.i"
 	@echo "... Socket.s"
-	@echo "... TcpConntection.o"
-	@echo "... TcpConntection.i"
-	@echo "... TcpConntection.s"
+	@echo "... TcpConnection.o"
+	@echo "... TcpConnection.i"
+	@echo "... TcpConnection.s"
 	@echo "... TcpServer.o"
 	@echo "... TcpServer.i"
 	@echo "... TcpServer.s"
