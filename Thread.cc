@@ -39,7 +39,7 @@ void Thread::start()
     thread_ = std::shared_ptr<std::thread>(new std::thread([&](){
         tid_ = CurrentThread::tid(); // 获取新线程的tid
         sem_post(&sem);
-        func_();
+        func_(); // EventLoopThread中的 threadFunc()
     }));
 
     sem_wait(&sem);

@@ -21,7 +21,7 @@ public:
 
     EventLoop* startLoop();
 private:
-    void threadFunc();
+    void threadFunc(); // 传给 Thread类 中的 func_
 
     EventLoop* loop_; // use mutex
     bool exiting_;

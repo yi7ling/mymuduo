@@ -51,7 +51,7 @@ void Acceptor::handleRead()
 {
     InetAddress peerAddr;
 
-    // TODO 疑问？ peerAddr 和 上面listenAddr有什么关系吗？
+    // 底层调用了Linux的accept函数，接受客户端连接请求，并将客户端的套接字地址写进peerAddr中
     int connfd = acceptSocket_.accept(&peerAddr);
     if (connfd >= 0)
     {

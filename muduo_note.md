@@ -129,6 +129,27 @@ loop_->runInLoop(
 acceptor_->listen();
 ```
 
+muduo底层中，可读可写事件的触发是由谁引起的？
+
+muduo底层是由epoll驱动的，可读可写的状态是由fd对应的内核缓冲区决定的。
+触发方式：首先要调用 epoll_ctl 注册需要关注的事件类型，
+
+1. 当关注了可读事件，fd对应的缓冲区从空变成非空，则触发了读事件
+2. 当关注了可写事件，fd对应的缓冲区从满变成非满，则触发了写事件
+
+epoll的触发模式有哪些：
+
+epoll的触发方式有两种：水平触发LT、边缘触发ET
+
+- LT: epoll的默认模式，在LT模式下，只要fd 的状态与事件类型匹配，epoll_wait() 调用就会不断返回该事件。
+
+    例如：如果一个 socket 上有数据可读，那么每次 epoll_wait() 被调用时，只要缓冲区中还有未读取的数据，它就会返回读事件（EPOLLIN）。
+
+- ET: epoll_wait() 仅在fd 的状态发送变化时返回事件。
+
+    例如：对于写事件，只要 socket 的发送缓冲区从不可写状态变为可写状态，epoll_wait() 就会返回一次写事件（EPOLLOUT），之后除非缓冲区再次变为不可写状态，否则不会再次返回写事件。
+
+
 ## 源码分析
 
 1. 服务器实例的创建与启动，以 EchoServer为例，[main.cc]
@@ -165,4 +186,8 @@ acceptor_->listen();
 7. EventLoopThreadPool
 
 8. socket 和 Acceptor
+
+9. TcpServer
+
+10. TcpConnection
     

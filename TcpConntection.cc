@@ -151,7 +151,13 @@ void TcpConnection::sendInLoop(const void* data, size_t len)
     }
 }
 
-
+/**
+ * 读是相对服务器而言的
+ * 当对端客户端有数据到达时，
+ * 服务器会监测到EPOLLIN，就会触发该 fd 上的回调
+ * fd -> channel -> handleEvent -> handleRead
+ * 从而读走对端发来的数据
+ */
 void TcpConnection::handleRead(Timestamp timestamp)
 {
     int saveErrno = 0;
@@ -162,7 +168,7 @@ void TcpConnection::handleRead(Timestamp timestamp)
         // 已建立连接的用户，有可读事件发生了，调用用户传入的回调操作onMessage
         messageCallback_(shared_from_this(), &inputBuffer_, timestamp);
     }
-    else if (n == 0)
+    else if (n == 0) // 客户端断开
     {
         handleClose();
     }

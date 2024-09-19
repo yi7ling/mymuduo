@@ -3,7 +3,10 @@
 #include <netinet/in.h>
 #include <string>
 
-
+/**
+ * 主要是对socket编程中sockaddr_in进行封装
+ * 使其变为更友好的简单接口
+ */
 class InetAddress
 {
 public:
