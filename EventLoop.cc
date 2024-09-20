@@ -91,6 +91,7 @@ void EventLoop::loop()
 
         for (Channel* channel: activeChannels_)
         {
+            // Poller监听哪些channel发生了事件 然后上报给EventLoop 通知channel处理相应的事件
             channel->handleEvent(pollReturnTime_);
         }
 
@@ -217,7 +218,7 @@ void EventLoop::doPendingFunctors()
 
     for (const Functor& functor: functors)
     {
-        functor(); // 
+        functor(); // 执行当前loop需要执行的回调操作
     }
 
     callingPendingFunctors_ = false;

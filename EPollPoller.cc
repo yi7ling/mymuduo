@@ -29,7 +29,7 @@ EPollPoller::~EPollPoller()
 
 Timestamp EPollPoller::poll(int timeoutMs, ChannelList* activeChannels)
 {
-    LOG_DEBUG("%s ==> fd total cnt:%u \n",
+    LOG_INFO("%s ==> fd total cnt:%u \n",
         __func__, channels_.size());
 
     int numEvents = ::epoll_wait(epollfd_,
@@ -142,7 +142,7 @@ void EPollPoller::removeChannel(Channel *channel)
     int index = channel->index();
 
     LOG_INFO("func:%s ==> fd=%d, events=%d, index=%d \n",
-        __func__, channel->events(), index);
+        __func__, channel->fd(), channel->events(), index);
 
     assert(channels_.find(fd) != channels_.end());
     assert(channels_[fd] == channel);

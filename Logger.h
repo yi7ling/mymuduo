@@ -46,7 +46,7 @@
         exit(-1); \
     } while (0); \
 
-#define MUDEBUG 1 // 开启DEBUG
+// #define MUDEBUG 1 // 开启DEBUG
 
 #ifdef MUDEBUG
 #define LOG_DEBUG(logmsgFormat, ...) \

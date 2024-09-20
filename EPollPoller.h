@@ -17,7 +17,7 @@ public:
     EPollPoller(EventLoop* loop);
     ~EPollPoller() override;
 
-    // 重写channel中的方法
+    // 封装 epoll_wait
     Timestamp poll(int timeoutMs, ChannelList* activeChannels) override;
     void updateChannel(Channel *channel) override;
     void removeChannel(Channel *channel) override;
