@@ -152,43 +152,97 @@ epoll的触发方式有两种：水平触发LT、边缘触发ET
 
 ## 源码分析
 
-1. 服务器实例的创建与启动，以 EchoServer为例，[main.cc]
-
-2. 工具类
-
-    (1). [Timestap.h](Timestamp.h) 当前时间戳类
-    - Epoch: ：在这里指的是“纪元”，在计算机科学中，通常指的是一个参考时间点，即Unix时间纪元（Epoch），也就是1970年1月1日（UTC）
-
-    (2). [Logger.h](Logger.h) 日志类
-
-    以```LOG_INFO >> "pid: " >> getpid();```为例，
-     - Logger::logLevel() 查看当前日志等级是否 小于等于 INFO，是 则继续执行
-     - LOG_INFO 替换为 ```muduo::Logger(__FILE__, __LINE__).stream()```
-     > ```__FILE__``` 和 ```__LINE__ ``` 是两个预定义的宏，用于在代码中嵌入有关当前文件名和行号的信息。
+### 1. 服务器实例的创建与启动
     
-    (3). [InetAddress.h](InetAddress.h) 网络地址类
+以 EchoServer为例，[testserver.cc](example/testserver.cc)
 
-    - 主要是对ip 和 port 在网络字节序和主机字节序的一个转化，以及主机字节序状态下的输出。
+① 先通过运行 autobuild.sh 构建muduo库的头文件和动态库
 
-3. Channel类
+② 在 example文件夹下，执行 make 命令，构建起一个muduo服务
 
-4. Poller类、EPollPoller类
+③ 新建一个shell窗口，执行 ```telnet 127.0.0.1 服务器提供的端口```，查看运行的日志
 
-5. EventLoop类
+### 2. 工具类
+
+(1). [Timestap.h](Timestamp.h) 当前时间戳类
+- Epoch: ：在这里指的是“纪元”，在计算机科学中，通常指的是一个参考时间点，即Unix时间纪元（Epoch），也就是1970年1月1日（UTC）
+
+(2). [Logger.h](Logger.h) 日志类
+
+主要关注：
+
+1. 设置日志级别
+2. 单例模式创建Logger
+3. 宏定义的灵活使用
+
+(3). [InetAddress.h](InetAddress.h) 网络地址类
+
+- 主要是对ip 和 port 在网络字节序和主机字节序的一个转化，以及主机字节序状态下的输出。
+
+### 3. Channel类
+
+关键成员变量：fd、events、revents、读/写/关闭/错误 的callback
+
+
+
+### 4. Poller类、EPollPoller类 - Demultiplex
+
+关键成员变量：std::unoredered_map<int, Channel*> channels
+
+### 5. EventLoop类 - Reactor
     疑问：
     1. mainLoop 和 subLoop 之间的关系是？ 相互之间可以激活吗？ 何种方式激活的？
     2. loop上的回调从何而来？
     3. 为什么 loop上的回调需要用锁给保护起来使用？
     4. 为什么EventLoop类中的 looping_、quit_字段 要设置成原子类型
 
-6. Thread 和 EventLoopThread
+关键成员变量：activeChannels、wakeupfd_、wakeupChannel
 
-7. EventLoopThreadPool
+### 6. Thread 和 EventLoopThread
 
-8. socket 和 Acceptor
-    注意区别 Acceptor中的 handleRead() 和 TcpConnection 中的 handleRead()
+- Thread主要封装了c++ 的 thread方法
+- EventLoopThread主要对，Thread 和 EventLoop进行了封装，其中关键的函数 threadFun() 实现了 one loop per thread
 
-9. TcpServer
+### 7. EventLoopThreadPool
 
-10. TcpConnection
+关键成员变量：eventloop, thread, numThreads
+
+getNext(): 以轮询方式获取一个 ioloop
+
+### 8. socket
+
+关键成员变量：sockfd
+
+主要是封装 socket fd, socket.h 是Linux网络编程重要的库，提供了一些使用套接字的方法。
+
+### 10. Acceptor
+
+关键成员变量：acceptSocket_, acceptChannel
+
+> 注意区别 Acceptor中的 handleRead() 和 TcpConnection 中的 handleRead()
+
+主要是封装listenfd的相关操作，socket、bind、listen、baseLoop
+
+### 11. Buffer
+
+缓冲区 vector<char> buf
+    prependable  readeridx  writeridx
+
+
+服务器读数据：
+
+    客户端写数据 -> connfd缓冲区 -> inputBuffer -> 服务端接收
+
+服务器写数据：
+
+    服务端发送数据 -> send() -> outputBuffer（如果一次性无法写到connfd缓冲区） -> connfd缓冲区 -> 客户端接收数据
+
+### 12. TcpConnection
+
+关键成员变量：sockfd, channel, handle读/写/关闭/错误 的回调 --> 对应Channel中的callback_变量, 读写缓冲区
+
+### 13. TcpServer
+
+关键成员变量：Acceptor, ConnectionMap connections_, threadPool_
+
     

@@ -54,6 +54,7 @@ private:
                 Timestamp time)
     {
         std::string msg = buf->retrieveAllAsString();
+        LOG_INFO("onMessage. buf->msg: %s \n", msg.c_str());
         conn->send(msg);
         conn->shutdown(); // 关闭写端 -> EPOLLHUP
     }

@@ -163,6 +163,10 @@ void TcpConnection::handleRead(Timestamp timestamp)
     int saveErrno = 0;
     ssize_t n = inputBuffer_.readFd(channel_->fd(), &saveErrno);
 
+    LOG_INFO("TcpConnection::handleRead, inputBuffer_, readable_len:%u, writable_len:%u \n",
+                inputBuffer_.readableBytes(),
+                inputBuffer_.writableBytes());
+
     if (n > 0) // 有数据
     {
         // 已建立连接的用户，有可读事件发生了，调用用户传入的回调操作onMessage

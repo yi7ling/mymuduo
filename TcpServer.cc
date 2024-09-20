@@ -92,7 +92,7 @@ void TcpServer::newConnection(int sockfd, const InetAddress& peerAddr)
 
     LOG_INFO("TcpServer::newConnection [%s] - new connection [%s] form %s \n",
             name_.c_str(), connName.c_str(), peerAddr.toIpPort().c_str());
-    
+
     // 通过sockfd获取其绑定的本机的ip地址和端口信息
     sockaddr_in local;
     memset(&local, 0, sizeof local);

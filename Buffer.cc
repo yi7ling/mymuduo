@@ -14,7 +14,7 @@ ssize_t Buffer::readFd(int fd, int* savedErrno)
     char extrabuf[65536] = {0}; // 栈上的内存空间 64k
     struct iovec vec[2];
     const size_t writeable = writableBytes();
-    vec[0].iov_base = begin() + writeable;
+    vec[0].iov_base = begin() + writerIndex_;
     vec[0].iov_len = writeable;
 
     vec[1].iov_base = extrabuf;

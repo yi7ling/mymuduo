@@ -11,7 +11,7 @@ rm -rf `pwd`/build/*
 # 编译
 cd `pwd`/build &&
     cmake .. &&
-    make
+    make # make 即执行Makefile
 
 # 回到项目根目录
 cd ..
