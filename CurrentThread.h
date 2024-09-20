@@ -2,7 +2,7 @@
 
 namespace CurrentThread
 {
-    extern __thread int t_cachedTid;
+    extern __thread int t_cachedTid;// 外部声明，必须有地方定义了
     void cachedTid();
 
     inline int tid()

@@ -18,7 +18,7 @@
         Logger& logger = Logger::instance(); \
         logger.setLogLevel(INFO); \
         char buf[1024] = {0}; \
-        snprintf(buf, 1024, "File: %s:%d" logmsgFormat, \
+        snprintf(buf, 1024, " %s:%d. " logmsgFormat, \
             __FILE__, __LINE__, ##__VA_ARGS__); \
         logger.log(buf); \
     } while (0); \
@@ -29,7 +29,8 @@
         Logger& logger = Logger::instance(); \
         logger.setLogLevel(ERROR); \
         char buf[1024] = {0}; \
-        snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__); \
+        snprintf(buf, 1024, " %s:%d. " logmsgFormat, \
+            __FILE__, __LINE__, ##__VA_ARGS__); \
         logger.log(buf); \
     } while (0); \
 
@@ -39,10 +40,13 @@
         Logger& logger = Logger::instance(); \
         logger.setLogLevel(FAIAL); \
         char buf[1024] = {0}; \
-        snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__); \
+        snprintf(buf, 1024, " %s:%d. " logmsgFormat, \
+            __FILE__, __LINE__, ##__VA_ARGS__); \
         logger.log(buf); \
         exit(-1); \
     } while (0); \
+
+#define MUDEBUG 1 // 开启DEBUG
 
 #ifdef MUDEBUG
 #define LOG_DEBUG(logmsgFormat, ...) \
@@ -51,7 +55,8 @@
         Logger& logger = Logger::instance(); \
         logger.setLogLevel(DEBUG); \
         char buf[1024] = {0}; \
-        snprintf(buf, 1024, logmsgFormat, ##__VA_ARGS__); \
+        snprintf(buf, 1024, " %s:%d. " logmsgFormat, \
+            __FILE__, __LINE__, ##__VA_ARGS__); \
         logger.log(buf); \
     } while (0) // 因为#else，为保证语法不需要加分号
 #else
@@ -81,5 +86,5 @@ public:
     void log(std::string msg);
 private:
     int loglevel_;
-    Logger();
+    Logger(){}
 };

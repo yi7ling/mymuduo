@@ -41,6 +41,7 @@ Acceptor::~Acceptor()
 
 void Acceptor::listen()
 {
+    LOG_INFO("Acceptor::listen, mainloop:%p \n", this->loop_);
     listenning_ = true;
     acceptSocket_.listen(); // 监听连接
     acceptChannel_.enableReading(); // acceptChannel_ => Poller

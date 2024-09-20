@@ -26,6 +26,7 @@ TcpServer::TcpServer(EventLoop* loop,
             , connectionCallback_()
             , messageCallback_()
             , nextConnId_(1)
+            , started_(0)
 {
     /**
      * 在acceptor中设置新连接的回调 （Acceptor::handleRead() -> newConntectionCallback_）

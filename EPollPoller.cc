@@ -51,7 +51,7 @@ Timestamp EPollPoller::poll(int timeoutMs, ChannelList* activeChannels)
     }
     else if (numEvents == 0)
     {
-        LOG_DEBUG("%s ==> timeout!");
+        LOG_DEBUG("%s ==> timeout! \n", __func__);
     }
     else
     {
@@ -97,7 +97,7 @@ void EPollPoller::updateChannel(Channel *channel)
     const int index = channel->index();
 
     LOG_INFO("func:%s ==> fd=%d, events=%d, index=%d \n",
-        __func__, channel->events(), index);
+        __func__, channel->fd(), channel->events(), index);
     if (index == kNew || index == kDeleted)
     {
         int fd = channel->fd();
