@@ -247,4 +247,14 @@ getNext(): 以轮询方式获取一个 ioloop
 
 关键成员变量：Acceptor, ConnectionMap connections_, threadPool_
 
+
+总结：
+需要分析的主要流程有：
+1. TcpServer的构造函数流程
+2. TcpServer.start()
+3. 有一个Tcp连接到来 => 
+4. 客户端发来数据时 => TcpServer执行到onMessage 的流程
+5. 服务端发送数据 => 全部数据发送出去（离开outputBuffer） 的流程
+6. 服务端shutdown（主动断开TCP连接） => tcp断开 的流程
+
     

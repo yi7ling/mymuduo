@@ -209,7 +209,7 @@ void TcpConnection::handleWrite()
                 }
                 if (state_ == kDisconnecting) // 如果正在关闭中
                 {
-                    shutdownInLoop();
+                    shutdownInLoop(); // 为什么可以直接调用 InLoop
                 }
             }
         }
@@ -229,7 +229,7 @@ void TcpConnection::handleWrite()
 void TcpConnection::connectEstablished()
 {
     setState(kConnected);
-    channel_->tie(shared_from_this()); // 跟踪connection对象
+    channel_->tie(shared_from_this()); // 跟踪connection对象，保证能正确使用 connection对象提供的回调
     channel_->enableReading(); // 向poller注册读事件
 
     // 新连接建立，执行回调
