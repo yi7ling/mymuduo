@@ -73,7 +73,7 @@ int main(void)
     // 主要是创建 Acceptor实例
     EchoServer server(&loop, addr, "EchoServer-01");
     
-    // 主要工作：1. 创建EventLoopThreadPool 2. Acceptor listening
+    // 主要工作：1. 创建子线程，subloop，同时开启loop.loop() 2. Acceptor listening
     server.start();
     loop.loop(); // mainloop 开启事件循环
 

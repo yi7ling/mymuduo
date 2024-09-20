@@ -198,6 +198,8 @@ epoll的触发方式有两种：水平触发LT、边缘触发ET
 
 关键成员变量：activeChannels、wakeupfd_、wakeupChannel
 
+wakeupfd_: 采用wakeupfd_方式，
+
 ### 6. Thread 和 EventLoopThread
 
 - Thread主要封装了c++ 的 thread方法
