@@ -35,6 +35,6 @@ private:
     bool started_;
     int numThreads_;
     int next_;
-    std::vector<std::unique_ptr<EventLoopThread>> threads_;
+    std::vector<std::unique_ptr<EventLoopThread>> threads_; // 线程数组
     std::vector<EventLoop*> loops_;
 };

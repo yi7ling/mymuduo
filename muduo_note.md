@@ -7,23 +7,6 @@ muduo库是基于Reactor模式实现的TCP网络编程库。
 
 2. 智能指针
     C++的智能指针本质是对原始指针的一种封装。
-    C++智能指针主要有两种：unique_ptr, shared_ptr（c++14支持，c++11不支持）
-
-    unique_ptr：1.作用域指针，超出作用域就会被delete
-    
-                2. 唯一的，不可复制的
-
-    shared_ptr: 工作方式通过引用计数
-
-    weak_ptr: 1. 可以和共享指针一起使用
-
-              2. weak_ptr的引用，不会使 引用计数器＋1
-
-              3. 主要用于跟踪 std::shared_ptr 所管理的对象，但不拥有对象的所有权
-    ```
-    std::weak_ptr<void> tie_;
-    bool tied_;
-    ```
 
 3. 左右值, 移动语义
 
@@ -107,6 +90,18 @@ IO多路复用(IO Multiplexing)：
 
 epoll库：
     epoll, 即Linux epoll I/O事件通知机制的组件之一，常用于事件驱动编程。
+
+epoll的触发模式有哪些：
+
+epoll的触发方式有两种：水平触发LT、边缘触发ET
+
+- LT: epoll的默认模式，在LT模式下，只要fd 的状态与事件类型匹配，epoll_wait() 调用就会不断返回该事件。
+
+    例如：如果一个 socket 上有数据可读，那么每次 epoll_wait() 被调用时，只要缓冲区中还有未读取的数据，它就会返回读事件（EPOLLIN）。
+
+- ET: epoll_wait() 仅在fd 的状态发送变化时返回事件。
+
+    例如：对于写事件，只要 socket 的发送缓冲区从不可写状态变为可写状态，epoll_wait() 就会返回一次写事件（EPOLLOUT），之后除非缓冲区再次变为不可写状态，否则不会再次返回写事件。
     
 - ```struct epoll_event;```   用于epoll机制的关键结构体，通常与 ```epoll_ctl()``` 和 ```epoll_wait()``` 函数一起使用
 - ```epoll_create()``` 创建一个epoll实例
@@ -136,18 +131,6 @@ muduo底层是由epoll驱动的，可读可写的状态是由fd对应的内核�
 
 1. 当关注了可读事件，fd对应的缓冲区从空变成非空，则触发了读事件
 2. 当关注了可写事件，fd对应的缓冲区从满变成非满，则触发了写事件
-
-epoll的触发模式有哪些：
-
-epoll的触发方式有两种：水平触发LT、边缘触发ET
-
-- LT: epoll的默认模式，在LT模式下，只要fd 的状态与事件类型匹配，epoll_wait() 调用就会不断返回该事件。
-
-    例如：如果一个 socket 上有数据可读，那么每次 epoll_wait() 被调用时，只要缓冲区中还有未读取的数据，它就会返回读事件（EPOLLIN）。
-
-- ET: epoll_wait() 仅在fd 的状态发送变化时返回事件。
-
-    例如：对于写事件，只要 socket 的发送缓冲区从不可写状态变为可写状态，epoll_wait() 就会返回一次写事件（EPOLLOUT），之后除非缓冲区再次变为不可写状态，否则不会再次返回写事件。
 
 
 ## 源码分析
@@ -252,7 +235,7 @@ getNext(): 以轮询方式获取一个 ioloop
 需要分析的主要流程有：
 1. TcpServer的构造函数流程
 2. TcpServer.start()
-3. 有一个Tcp连接到来 => 
+3. 有一个Tcp连接到来 => subloop监听读写请求
 4. 客户端发来数据时 => TcpServer执行到onMessage 的流程
 5. 服务端发送数据 => 全部数据发送出去（离开outputBuffer） 的流程
 6. 服务端shutdown（主动断开TCP连接） => tcp断开 的流程

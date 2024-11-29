@@ -28,7 +28,7 @@ void EventLoopThreadPool::start(const ThreadInitCallback& cb)
         snprintf(buf, sizeof buf, "%s%d", name_.c_str(), i);
         EventLoopThread *t = new EventLoopThread(cb, buf);
         threads_.push_back(std::unique_ptr<EventLoopThread>(t)); // 改用智能指针，自动释放资源
-        loops_.push_back(t->startLoop());
+        loops_.push_back(t->startLoop()); //启动一个子线程，并把loop_放到loops_中
     }
 
     // 整个服务端只有一个线程（运行baseLoop_的线程）时，运行 baseLoop

@@ -125,7 +125,7 @@ void TcpConnection::sendInLoop(const void* data, size_t len)
     /**
      * 若TCP缓冲区不能一次性容纳data，剩余的数据需要保存在outputBuffer_中，
      * 然后给channel注册epollout事件，poller发现tcp的发送缓冲区有空间，
-     * 会通知相应的socket -> channel，
+     * 会通知相应的socketfd -> channel，
      * channel调用writeCallback_（即TcpConnection传入的handleWrite）,
      * 直到把 outputBuffer_上的数据，全部发送给tcp缓冲区
      */

@@ -8,15 +8,15 @@
 #include <string>
 #include <atomic>
 
-// 封装线程
+// 封装thread线程
 class Thread : noncopyable
 {
 public:
     typedef std::function<void()> ThreadFunc;
-    explicit Thread(ThreadFunc, const std::string& name = std::string());
+    explicit Thread(ThreadFunc, const std::string& name = std::string()); // 线程要执行的函数通过构造函数传进来
     ~Thread();
 
-    void start(); // 线程创建的地方
+    void start(); // 真正的子线程创建的地方
     void join();
 
     bool started() const { return started_; }
@@ -36,7 +36,7 @@ private:
      */
     std::shared_ptr<std::thread> thread_;
     pid_t tid_;
-    ThreadFunc func_;
+    ThreadFunc func_; // 线程要执行的函数
     std::string name_;
 
     static std::atomic_int numCreates_; // 原子类型

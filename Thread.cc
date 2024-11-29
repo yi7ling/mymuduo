@@ -35,7 +35,7 @@ void Thread::start()
     sem_t sem; // 信号量机制，保证 tid_能在start()退出前赋值
     sem_init(&sem, false, 0);
 
-    // 创建一个新线程
+    // 创建一个新线程，立刻开始执行
     thread_ = std::shared_ptr<std::thread>(new std::thread([&](){
         tid_ = CurrentThread::tid(); // 获取新线程的tid
         sem_post(&sem);
